@@ -1,0 +1,42 @@
+<div>
+    <p>User Detail</p>
+    <a routerLink="/users">Back to List</a>
+</div>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>{{user.id}}</td>
+    </tr>
+    <tr>
+        <td>Username</td>
+        <td><input value={{user.username}} type="text" disabled></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input value={{user.password}} type="password" disabled></td>
+    </tr>
+    <tr>
+        <td>Firstname</td>
+        <td><input value={{user.firstname}} type="text" disabled></tr>
+    <tr>
+        <td>Lastname</td>
+        <td><input value={{user.lastname}} type="text" disabled></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input value={{user.email}} type="text" disabled></td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td><input value={{user.phone}} type="text" disabled></td>
+    </tr>
+    <tr>
+        <td>Reviewer</td>
+        <td><input value={{user.isReviewer}} type="checkbox" disabled></td>
+    </tr>
+    <tr>
+        <td>Admin</td>
+        <td><input value={{user.isAdmin}} type="checkbox" disabled></td>
+    </tr>
+
+</table>

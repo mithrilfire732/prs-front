@@ -1,0 +1,31 @@
+<p>user-list works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>password</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>isReviewer</th>
+            <th>IsAdmin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.isReviewer}}</td>
+            <td>{{user.isAdmin}}</td>
+            <td><a routerLink = "/users/{{user.id}}">View</a></td>
+            <td><a routerLink = "/users/{{user.id}}/edit">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
