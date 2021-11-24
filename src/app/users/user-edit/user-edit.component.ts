@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -14,7 +14,7 @@ export class UserEditComponent implements OnInit {
 
   userId: number = -1; 
 
-  constructor(private usrsvc: UserService, private route: ActivatedRoute) { }
+  constructor(private usrsvc: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.params["id"];
@@ -29,16 +29,21 @@ export class UserEditComponent implements OnInit {
   save(){
     this.usrsvc.edit(this.userId,this.user).subscribe({
       next: res => {console.debug("User:", res);
-                    this.user = res;},
+                    this.user = res;
+                    this.router.navigate(['/users'])
+                  },
       error: err =>{console.debug(err)}
     })
   }
 
   delete(){
     this.usrsvc.delete(this.userId).subscribe({
-      next: res => {console.debug(res)},
+      next: res => {console.debug(res)
+        this.router.navigate(['/users'])
+                  
+      },
       error: err => { console.debug(err)}
+      
     })
   }
-
 }
