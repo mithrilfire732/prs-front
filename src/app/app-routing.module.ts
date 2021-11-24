@@ -11,13 +11,16 @@ import { UserCreateComponent } from './users/user-create/user-create.component';
 import { UserLoginComponent } from './users/user-login/user-login.component';
 
 const routes: Routes = [
-  {path: "", pathMatch:"full",redirectTo:"/users"},
-  
+  {path: "", pathMatch:"full",redirectTo:"/home"},
+  {path:"home", component: HomeComponent},
+  {path:"about", component: AboutComponent},
+
   {path:"users", component:UserListComponent},
-  {path:"users/:id", component:UserDetailComponent},
   {path:"users/create", component:UserCreateComponent},
-  {path:"users/:id/edit", component:UserEditComponent},
   {path: "users/login", component:UserLoginComponent},
+  {path:"users/:id", component:UserDetailComponent},
+  {path:"users/:id/edit", component:UserEditComponent},
+
 
 
 ];

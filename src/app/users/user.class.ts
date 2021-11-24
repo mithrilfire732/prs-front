@@ -1,3 +1,5 @@
+import { Input } from "@angular/core";
+
 export class User {
 
     id: number;

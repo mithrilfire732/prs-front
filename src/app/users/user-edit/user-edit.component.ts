@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../user.class';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { UserService } from '../user.service';
 })
 export class UserEditComponent implements OnInit {
 
-  user: any;
+  user: User = new User(0,"","","","","","",false,false);
 
-  userId: number = 0; 
+  userId: number = -1; 
 
   constructor(private usrsvc: UserService, private route: ActivatedRoute) { }
 
@@ -26,7 +27,18 @@ export class UserEditComponent implements OnInit {
   }
 
   save(){
-    this.usrsvc.edit(this.userId,this.user)
+    this.usrsvc.edit(this.userId,this.user).subscribe({
+      next: res => {console.debug("User:", res);
+                    this.user = res;},
+      error: err =>{console.debug(err)}
+    })
+  }
+
+  delete(){
+    this.usrsvc.delete(this.userId).subscribe({
+      next: res => {console.debug(res)},
+      error: err => { console.debug(err)}
+    })
   }
 
 }

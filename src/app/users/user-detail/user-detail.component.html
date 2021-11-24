@@ -36,7 +36,7 @@
     </tr>
     <tr>
         <td>Admin</td>
-        <td><input value={{user.isAdmin}} type="checkbox" disabled></td>
+        <td><input *ngIf{{user.isAdmin}} type="checkbox" disabled></td>
     </tr>
 
 </table>

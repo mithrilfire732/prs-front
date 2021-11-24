@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { User } from './user.class';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { User } from './user.class';
 export class UserService {
 
   baseurl: string = "http://localhost:10732/api/users";
+
 
   constructor(private httpsvc: HttpClient) { }
 
@@ -25,10 +26,14 @@ export class UserService {
   }
 
   create(user: User): Observable<User>{
-    return this.httpsvc.post(`${this.baseurl}`,user) as Observable<User>
+    return this.httpsvc.post<User>(`${this.baseurl}`,user) as Observable<User>
   }
   
   edit(id: number, user: User): Observable<User>{
-    return this.httpsvc.put(`${this.baseurl}/${id}`,user) as Observable<User>
+    return this.httpsvc.put<User>(`${this.baseurl}/${id}`,user) as Observable<User>
+  }
+
+  delete(id: number): Observable<User>{
+    return this.httpsvc.delete(`${this.baseurl}/${id}`) as Observable<User>
   }
 }
