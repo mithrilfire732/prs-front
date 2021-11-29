@@ -23,8 +23,8 @@ export class ProductService {
     return this.http.get(`${this.baseurl}/${id}`) as Observable<Product>;
   }
 
-  create(product: Product2): Observable<Product2>{
-    return this.http.post<Product2>(`${this.baseurl}`,product) as Observable<Product2>;
+  create(product: Product2): Observable<Product>{
+    return this.http.post<Product>(`${this.baseurl}`,product) as Observable<Product>;
   }
 
   edit(id: number, product:Product): Observable<Product> {
