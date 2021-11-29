@@ -17,6 +17,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component'; 
+import { RequestListComponent } from './requests/request-list/request-list.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,9 @@ const routes: Routes = [
   {path: "products", component: ProductListComponent},
   {path: "products/create", component: ProductCreateComponent},
   {path: "products/:id", component: ProductDetailComponent},
-  {path: "products/:id/edit", component: ProductEditComponent}
+  {path: "products/:id/edit", component: ProductEditComponent},
+
+  {path: "requests", component: RequestListComponent}
 
 ];
 

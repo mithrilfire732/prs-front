@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Vendor } from 'src/app/vendors/vendor.class';
 import { VendorService } from 'src/app/vendors/vendor.service';
 import { Product } from '../product.class';
-import { Product2 } from '../product2.class';
 
 @Component({
   selector: 'app-product-create',
@@ -13,7 +12,7 @@ import { Product2 } from '../product2.class';
 })
 export class ProductCreateComponent implements OnInit {
 
-  product: Product2 = new Product2(0,"","",0,0,"",0); 
+  product: Product = new Product(); 
 
   vendors: Vendor[] = [];
   
@@ -29,6 +28,7 @@ export class ProductCreateComponent implements OnInit {
   }
 
   save(){
+    this.product.vendorId = +this.product.vendorId;
     this.pdsv.create(this.product)
       .subscribe({
         next: res => {console.debug("Product:", res); 

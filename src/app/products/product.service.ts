@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './product.class';
-import { Product2 } from './product2.class';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +22,7 @@ export class ProductService {
     return this.http.get(`${this.baseurl}/${id}`) as Observable<Product>;
   }
 
-  create(product: Product2): Observable<Product>{
+  create(product: Product): Observable<Product>{
     return this.http.post<Product>(`${this.baseurl}`,product) as Observable<Product>;
   }
 

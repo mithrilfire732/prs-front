@@ -5,7 +5,7 @@
     <tr><th>partNbr</th><td><input [(ngModel)] = "product.partNbr" type="text" ></td></tr>
     <tr><th>name</th><td><input [(ngModel)] = "product.name" type="text" ></td></tr>
     <tr><th>price</th><td><input [(ngModel)] = "product.price" type="number" ></td></tr>
-    <tr><th>unit</th><td><input [(ngModel)] = "product.unit" type="number" ></td></tr>
+    <tr><th>unit</th><td><input [(ngModel)] = "product.unit" type="text" ></td></tr>
     <tr><th>vendorId</th><td ><select [(ngModel)] = "product.vendorId">
         <option *ngFor = "let vendor of vendors" label= {{vendor.name}} value={{vendor.id}}></option>
     </select></td></tr>
