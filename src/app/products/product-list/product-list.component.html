@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+<h3>Products</h3>
+<a routerLink="/products/create">Add New Product</a>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>partNbr</th>
+            <th>name</th>
+            <th>price</th>
+            <th>unit</th>
+            <th>Vendor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.partNbr}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.unit}}</td>
+            <td>{{product.vendor.name}}</td>
+            <td><a routerLink="/products/{{product.id}}">Details</a></td>
+            <td><a routerLink="/products/{{product.id}}/edit">Edit</a></td>
+        </tr>
+    </tbody>
+</table>

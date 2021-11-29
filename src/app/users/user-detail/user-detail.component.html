@@ -32,11 +32,11 @@
     </tr>
     <tr>
         <td>Reviewer</td>
-        <td><input value={{user.isReviewer}} type="checkbox" disabled></td>
+        <td><input [(ngModel)]="user.isReviewer" type="checkbox" disabled></td>
     </tr>
     <tr>
         <td>Admin</td>
-        <td><input *ngIf{{user.isAdmin}} type="checkbox" disabled></td>
+        <td><input [(ngModel)] = "user.isAdmin" type="checkbox" disabled></td>
     </tr>
 
 </table>
