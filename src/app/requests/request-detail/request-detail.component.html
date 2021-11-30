@@ -1,12 +1,29 @@
-<h3>{{request.name}}</h3>
 <a routerLink="/requests">Back to Requests</a>
+<h3>Request #{{request.id}}</h3>
 <table>
-    <tr><td>id</td><td>{{request.id}}</td></tr>
-    <tr><td>description</td><td>{{request.description}}</td></tr>
-    <tr><td>justification</td><td>{{request.justification}}</td></tr>
-    <tr><td>rejectionReason</td><td>{{request.rejectionReason}}</td></tr>
-    <tr><td>deliveryMode</td><td>{{request.deliveryMode}}</td></tr>
-    <tr><td>status</td><td>{{request.status}}</td></tr>
-    <tr><td>total</td><td>{{request.total}}</td></tr>
-    <tr><td>userId</td><td>{{request.userId}}</td></tr>
+    <tr><th>id</th><td>{{request.id}}</td></tr>
+    <tr><th>description</th><td>{{request.description}}</td></tr>
+    <tr><th>justification</th><td>{{request.justification}}</td></tr>
+    <tr><th>rejectionReason</th><td>{{request.rejectionReason}}</td></tr>
+    <tr><th>deliveryMode</th><td>{{request.deliveryMode}}</td></tr>
+    <tr><th>status</th><td>{{request.status}}</td></tr>
+    <tr><th>total</th><td>${{request.total}}</td></tr>
+    <tr><th>userId</th><td>{{request.userId}}</td></tr>
+</table>
+<h4>Request Lines</h4>
+<table>
+    <tr>
+        <th>Id  </th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor = "let rl of requestlines">
+        <td>{{rl.id}}</td>
+        <td>{{rl.product.name}}</td>
+        <td>{{rl.quantity}}</td>
+        <td>${{rl.product.price}}</td>
+        <td><a class="link-primary" routerLink="/requestlines/{{rl.id}}">Edit</a> | <button type="button" class ="btn btn-link" (click) = 'delete(rl.id)'>Delete</button></td>
+    </tr>
 </table>

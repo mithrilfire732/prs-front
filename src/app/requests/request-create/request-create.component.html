@@ -1,0 +1,13 @@
+<a routerLink="/requests">Back to Requests</a>
+<h3>Create New Request</h3>
+<table>
+    <tr><td>id</td><td><input [(ngModel)]="request.id" type="number" disabled></td></tr>
+    <tr><td>description</td><td><input [(ngModel)]="request.description" type="text" required></td></tr>
+    <tr><td>justification</td><td><input [(ngModel)]="request.justification" type="text" required></td></tr>
+    <tr><td>deliveryMode</td><td><input [(ngModel)]="request.deliveryMode" type="text" placeholder="Defaut: Pickup"></td></tr>
+    <tr><td>status</td><td><input [(ngModel)]="request.status" type="text" placeholder="Defaut: New" readonly></td></tr>
+    <tr><td>total</td><td><input [(ngModel)]="request.total" type="number" value= 0 disabled></td></tr>
+    <tr><td>userId</td><td><input [(ngModel)]="request.userId" type="number"></td></tr>
+</table>
+<button (click)="save()">Submit</button>
+<a routerLink="/requests">Cancel</a>

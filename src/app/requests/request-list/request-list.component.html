@@ -1,5 +1,6 @@
 <app-menu></app-menu>
 <h3>Requests</h3>
+<a routerLink="/requests/create">Start a Request</a>
 <table>
     <thead>
         <tr><th>Id</th>
@@ -19,7 +20,7 @@
             <td>{{request.rejectionReason}}</td>
             <td>{{request.deliveryMode}}</td>
             <td>{{request.status}}</td>
-            <td>{{request.total}}</td>
+            <td>${{request.total}}</td>
             <td>{{request.userId}}</td>
             <td><a routerLink="/requests/{{request.id}}">Details</a></td>
             <td><a routerLink="/requests/{{request.id}}/edit">Edit</a></td>
