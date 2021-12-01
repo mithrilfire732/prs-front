@@ -1,1 +1,10 @@
-<p>user-login works!</p>
+<div>
+    <table>
+        <tr><th>Username</th><th>Password</th></tr>
+        <tr><td><input [(ngModel)]="username" type="text"></td><td><input [(ngModel)]="password" type="password"></td></tr>
+    </table>
+    <label *ngIf ="failed" style="color: red; font-weight: bold;" >Incorrect username or password, please try again!</label>
+    <div>
+        <button (click)="loginTry()">Login</button>
+    </div>
+</div>

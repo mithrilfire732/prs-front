@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class UserCreateComponent implements OnInit {
 
-  user: User = new User(0,"","","","","","",false,false);
+  user: User = new User();
   
   constructor(private usrsvc: UserService, private route: ActivatedRoute) { }
 

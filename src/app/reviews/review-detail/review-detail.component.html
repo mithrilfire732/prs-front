@@ -1,4 +1,4 @@
-<a routerLink="/requests">Back to Requests</a>
+<app-menu></app-menu>
 <h3>Request #{{request.id}}</h3>
 <table class="table table-sm">
     <tr><th>Id</th>
@@ -19,7 +19,6 @@
         <td>{{request.status}}</td>
         <td>{{request.total |currency}}</td>
         <td>{{request.userId}}</td>
-        <td><button (click)="review()">Review</button></td>
     </tr>
 </table>
 <h4>Request Lines</h4>
@@ -35,8 +34,8 @@
         <td>{{rl.id}}</td>
         <td>{{rl.product.name}}</td>
         <td>{{rl.quantity}}</td>
-        <td>{{rl.product.price |currency}}</td>
-        <td><a class="link-primary" routerLink="/requests/requestlines/{{rl.id}}/edit">Edit</a> | <button type="button" class ="btn btn-link" (click) = 'delete(rl.id)'>Delete</button></td>
+        <td>${{rl.product.price |currency}}</td>
     </tr>
 </table>
-<a routerLink="/requests/createline/{{request.id}}">Add new line</a>
+<button (click)="approveRequest()">Approve</button>
+<button (click)="rejectRequest()">Reject</button>

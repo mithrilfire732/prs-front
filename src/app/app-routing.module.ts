@@ -23,16 +23,18 @@ import { RequestCreateComponent } from './requests/request-create/request-create
 import { RequestEditComponent } from './requests/request-edit/request-edit.component';
 import { RequestlineEditComponent } from './requests/requestline-edit/requestline-edit.component';
 import { RequestlineCreateComponent } from './requests/requestline-create/requestline-create.component';
+import { ReviewerListComponent } from './reviews/reviewer-list/reviewer-list.component';
+import { ReviewDetailComponent } from './reviews/review-detail/review-detail.component';
 
 
 const routes: Routes = [
-  {path: "", pathMatch:"full",redirectTo:"/home"},
+  {path: "", pathMatch:"full",redirectTo:"/login"},
   {path:"home", component: HomeComponent},
   {path:"about", component: AboutComponent},
+  {path:"login", component: UserLoginComponent},
 
   {path:"users", component:UserListComponent},
   {path:"users/create", component:UserCreateComponent},
-  {path: "users/login", component:UserLoginComponent},
   {path:"users/:id", component:UserDetailComponent},
   {path:"users/:id/edit", component:UserEditComponent},
 
@@ -51,7 +53,10 @@ const routes: Routes = [
   {path: "requests/createline/:id", component: RequestlineCreateComponent},
   {path: "requests/requestlines/:id/edit", component: RequestlineEditComponent},
   {path: "requests/:id", component: RequestDetailComponent},
-  {path: "requests/:id/edit", component: RequestEditComponent}
+  {path: "requests/:id/edit", component: RequestEditComponent},
+
+  {path: "reviewer/:id", component: ReviewerListComponent},
+  {path: "review/:id", component: ReviewDetailComponent}
 
 ];
 

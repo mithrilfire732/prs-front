@@ -30,5 +30,18 @@ export class RequestDetailComponent implements OnInit {
     this.rssv.find(this.requestid).subscribe({next: res => {console.debug("requests:",res); this.request=res; this.requestlines = res.requestlines},
     error: err => {console.debug(err);}})
   }
+
+  review(){
+    this.request.user = null;
+    this.request.requestlines = null;
+    this.rssv.review(this.request).subscribe({next: res => {console.debug("success"); this.fetchData()},
+  error: err => {console.debug(err)}});
+  }
+  
+  delete(id: number): void {
+    this.rlsv.delete(id).subscribe({next: res => {console.debug("delete:", res);this.fetchData();
+                                                  },
+                                    error: err => {console.debug("error:",err)}});
+                                  }
 }
                                   

@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
 
-  user: User = new User(0,"","","","","","",false,false);
+  user: User = new User();
 
   userId: number = 0; 
 

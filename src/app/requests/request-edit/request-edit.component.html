@@ -11,21 +11,4 @@
 </table>
 <button (click)="save()">Submit</button>
 <a routerLink="/requests">Cancel</a>
-<h4>Request Lines</h4>
-<table>
-    <tr>
-        <th>Id  </th>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Actions</th>
-    </tr>
-    <tr *ngFor = "let rl of requestlines">
-        <td>{{rl.id}}</td>
-        <td>{{rl.product.name}}</td>
-        <td>{{rl.quantity}}</td>
-        <td>{{rl.product.price |currency}}</td>
-        <td><a class="link-primary" routerLink="/requests/requestlines/{{rl.id}}/edit">Edit</a> | <button type="button" class ="btn btn-link" (click) = 'delete(rl.id)'>Delete</button></td>
-    </tr>
-</table>
-<a routerLink="/requests/createline/{{request.id}}">Add new line</a>
+

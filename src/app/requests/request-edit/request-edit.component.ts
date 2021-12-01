@@ -35,13 +35,7 @@ export class RequestEditComponent implements OnInit {
       error: err =>{console.debug(err)}
     })
   }
-
-  delete(id: number): void {
-    this.rlsv.delete(id).subscribe({next: res => {console.debug("delete:", res);this.fetchData();
-                                                  },
-                                    error: err => {console.debug("error:",err)}});
-                                  }
-
+  
   fetchData(){
     this.rqsv.find(this.requestId).subscribe({next: res => {console.debug("Request:", res); this.request=res; this.requestlines = res.requestlines}, error: err => {console.debug(err);}})
 

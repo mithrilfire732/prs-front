@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class UserEditComponent implements OnInit {
 
-  user: User = new User(0,"","","","","","",false,false);
+  user: User = new User();
 
   userId: number = -1; 
 

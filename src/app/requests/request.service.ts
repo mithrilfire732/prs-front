@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservableLike } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Request } from './request';
 
@@ -30,5 +30,21 @@ export class RequestService {
 
   delete(id: number): Observable<Request>{
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<Request>;
+  }
+
+  review(request: Request): Observable<Request> {
+    return this.http.put(`${this.baseurl}/review`, request) as Observable<Request>;
+  }
+
+  reject(request: Request) : Observable<Request> {
+    return this.http.put(`${this.baseurl}/reject`, request) as Observable<Request>;
+  }
+  
+  approve(request: Request) : Observable<Request> {
+    return this.http.put(`${this.baseurl}/approve`, request) as Observable<Request>;
+  }
+
+  listRl(uid: number): Observable<Request[]> {
+    return this.http.get(`${this.baseurl}/reviews/${uid}`) as Observable<Request[]>;
   }
 }
