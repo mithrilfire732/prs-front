@@ -48,10 +48,10 @@ const routes: Routes = [
 
   {path: "requests", component: RequestListComponent},
   {path: "requests/create", component: RequestCreateComponent},
+  {path: "requests/createline/:id", component: RequestlineCreateComponent},
+  {path: "requests/requestlines/:id/edit", component: RequestlineEditComponent},
   {path: "requests/:id", component: RequestDetailComponent},
-  {path: "requests/:id/edit", component: RequestEditComponent},
-  {path: "requests/:id/create-line", component: RequestlineCreateComponent},
-  {path: "requests/requestlines/:id/edit", component: RequestlineEditComponent}
+  {path: "requests/:id/edit", component: RequestEditComponent}
 
 ];
 

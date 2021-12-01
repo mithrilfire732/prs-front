@@ -6,7 +6,7 @@
     <tr><td>justification</td><td><input [(ngModel)]="request.justification" type="text" required></td></tr>
     <tr><td>deliveryMode</td><td><input [(ngModel)]="request.deliveryMode" type="text" placeholder="Defaut: Pickup"></td></tr>
     <tr><td>status</td><td><input [(ngModel)]="request.status" type="text" placeholder="Defaut: New" readonly></td></tr>
-    <tr><td>total</td><td><input [(ngModel)]="request.total" type="number" value= 0 disabled></td></tr>
+    <tr><td>total</td><td><input [ngModel]="request.total |currency" type="text" value= 0 disabled></td></tr>
     <tr><td>userId</td><td><input [(ngModel)]="request.userId" type="number"></td></tr>
 </table>
 <button (click)="save()">Submit</button>
@@ -24,7 +24,8 @@
         <td>{{rl.id}}</td>
         <td>{{rl.product.name}}</td>
         <td>{{rl.quantity}}</td>
-        <td>${{rl.product.price}}</td>
+        <td>{{rl.product.price |currency}}</td>
         <td><a class="link-primary" routerLink="/requests/requestlines/{{rl.id}}/edit">Edit</a> | <button type="button" class ="btn btn-link" (click) = 'delete(rl.id)'>Delete</button></td>
     </tr>
 </table>
+<a routerLink="/requests/createline/{{request.id}}">Add new line</a>

@@ -1,1 +1,20 @@
-<p>requestline-create works!</p>
+<table>
+    <tr>
+        <td>Request Id</td>
+        <td>Product</td>
+        <td>Quantity</td>
+        <td>Price</td>
+        <td>Subtotal</td>
+    </tr>
+    <tr>
+        <td><input type="text" value ="{{requestline.requestId}}"></td>
+        <td><select (change) ="productChange()" [(ngModel)]="requestline.productId" >
+            <option *ngFor="let product of products" label={{product.name}} value={{product.id}}></option>
+        </select></td>
+        <td><input (change) = "quantityChange()" [(ngModel)]="requestline.quantity" type="number"></td>
+        <td><input [ngModel] = "requestline.product.price |currency" type="text"></td>
+        <td><input [ngModel] = "subtotal | currency" type="text"></td>
+    </tr>
+</table>
+<button (click)="save()">Add line</button>
+<a routerLink="/requests/{{requestline.requestId}}/edit">Cancel</a>

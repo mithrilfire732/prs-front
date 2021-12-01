@@ -12,8 +12,8 @@
             <option *ngFor = "let product of products" label = {{product.name}} value={{product.id}}></option>
         </select></td>
         <td><input [(ngModel)] = "requestline.quantity" type="number"></td>
-        <td><input [ngModel] = "requestline.product.price" type="number" disabled></td>
-        <td><input [ngModel] = "subtotal" type="number" readonly></td>
+        <td><input [ngModel] = "requestline.product.price |currency" type="text" disabled></td>
+        <td><input [ngModel] = "subtotal |currency" type="text" readonly></td>
     </tr>
 </table>
 <button (click) = "save()">Submit</button>
