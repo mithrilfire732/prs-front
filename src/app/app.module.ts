@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import { RequestListComponent } from './requests/request-list/request-list.compo
 import { RequestDetailComponent } from './requests/request-detail/request-detail.component';
 import { RequestEditComponent } from './requests/request-edit/request-edit.component';
 import { RequestCreateComponent } from './requests/request-create/request-create.component';
+import { RequestlineCreateComponent } from './requests/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './requests/requestline-edit/requestline-edit.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { RequestCreateComponent } from './requests/request-create/request-create
     RequestListComponent,
     RequestDetailComponent,
     RequestEditComponent,
-    RequestCreateComponent
+    RequestCreateComponent,
+    RequestlineCreateComponent,
+    RequestlineEditComponent
   ],
   imports: [
     BrowserModule,
@@ -58,5 +62,6 @@ import { RequestCreateComponent } from './requests/request-create/request-create
   ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

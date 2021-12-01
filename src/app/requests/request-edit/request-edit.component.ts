@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Request } from '../request';
 import { RequestService } from '../request.service';
+import { RequestlineService } from '../requestline.service';
 import { ActivatedRoute,Router } from '@angular/router';
+import { Requestline } from '../requestline';
 
 @Component({
   selector: 'app-request-edit',
@@ -14,11 +16,16 @@ export class RequestEditComponent implements OnInit {
 
   request: Request = new Request();
 
-  constructor(private rqsv: RequestService, private router: Router, private route: ActivatedRoute) { }
+  requestlines: Requestline[] = [];
+
+  constructor(private rqsv: RequestService, 
+              private router: Router, 
+              private route: ActivatedRoute,
+              private rlsv: RequestlineService) { }
 
   ngOnInit(): void {
-    this.requestId = this.route.snapshot.params["id"]
-    this.rqsv.find(this.requestId).subscribe({next: res => {console.debug("Request:", res)}, error: err => {console.debug(err);}})
+    this.requestId = this.route.snapshot.params["id"];
+    this.fetchData();
   }
 
   save(): void {
@@ -27,6 +34,17 @@ export class RequestEditComponent implements OnInit {
                     this.router.navigate(["/requests"])},
       error: err =>{console.debug(err)}
     })
+  }
+
+  delete(id: number): void {
+    this.rlsv.delete(id).subscribe({next: res => {console.debug("delete:", res);this.fetchData();
+                                                  },
+                                    error: err => {console.debug("error:",err)}});
+                                  }
+
+  fetchData(){
+    this.rqsv.find(this.requestId).subscribe({next: res => {console.debug("Request:", res); this.request=res; this.requestlines = res.requestlines}, error: err => {console.debug(err);}})
+
   }
 
 }
