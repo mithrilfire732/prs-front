@@ -7,7 +7,7 @@
     <tr><td>deliveryMode</td><td><input [(ngModel)]="request.deliveryMode" type="text" placeholder="Defaut: Pickup"></td></tr>
     <tr><td>status</td><td><input [(ngModel)]="request.status" type="text" placeholder="Defaut: New" readonly></td></tr>
     <tr><td>total</td><td><input [(ngModel)]="request.total" type="number" value= 0 disabled></td></tr>
-    <tr><td>userId</td><td><input [(ngModel)]="request.userId" type="number"></td></tr>
+    <tr><td>User</td><td><input [ngModel]="user.username" type="text" disabled></td></tr>
 </table>
 <button (click)="save()">Submit</button>
 <a routerLink="/requests">Cancel</a>

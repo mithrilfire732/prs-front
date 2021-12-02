@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './misc/home/home.component';
 import { AboutComponent } from './misc/about/about.component';
-import { MenuComponent } from './misc/menu/menu.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
@@ -29,13 +28,14 @@ import { RequestlineCreateComponent } from './requests/requestline-create/reques
 import { RequestlineEditComponent } from './requests/requestline-edit/requestline-edit.component';
 import { ReviewerListComponent } from './reviews/reviewer-list/reviewer-list.component';
 import { ReviewDetailComponent } from './reviews/review-detail/review-detail.component';
+import { MenuComponent } from './misc/menu/menu/menu.component';
+import { MenuItemComponent } from './misc/menu/menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    MenuComponent,
     UserListComponent,
     UserDetailComponent,
     UserEditComponent,
@@ -56,7 +56,9 @@ import { ReviewDetailComponent } from './reviews/review-detail/review-detail.com
     RequestlineCreateComponent,
     RequestlineEditComponent,
     ReviewerListComponent,
-    ReviewDetailComponent
+    ReviewDetailComponent,
+    MenuComponent,
+    MenuItemComponent,
   ],
   imports: [
     BrowserModule,
