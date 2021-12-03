@@ -21,7 +21,7 @@
             <td>{{request.deliveryMode}}</td>
             <td>{{request.status}}</td>
             <td>{{request.total |currency}}</td>
-            <td>{{request.userId}}</td>
+            <td>{{request.user.username}}</td>
             <td><a routerLink="/requests/{{request.id}}">Details</a></td>
             <td><a routerLink="/requests/{{request.id}}/edit">Edit</a></td>
         </tr>

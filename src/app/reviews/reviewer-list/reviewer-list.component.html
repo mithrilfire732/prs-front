@@ -1,29 +1,37 @@
 <app-menu></app-menu>
-<h3>Requests to Review</h3>
-<table>
-    <thead>
-        <tr><th>Id</th>
-        <th>Description</th>
-        <th>Justification</th>
-        <th>RejectionReason</th>
-        <th>DeliveryMode</th>
-        <th>Status</th>
-        <th>Total</th>
-        <th>UserId</th>
-            <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let request of requests">
-            <td>{{request.id}}</td>
-            <td>{{request.description}}</td>
-            <td>{{request.justification}}</td>
-            <td>{{request.rejectionReason}}</td>
-            <td>{{request.deliveryMode}}</td>
-            <td>{{request.status}}</td>
-            <td>{{request.total |currency}}</td>
-            <td>{{request.userId}}</td>
-            <td><a routerLink="/review/{{request.id}}">Review</a></td>
-        </tr>
-    </tbody>
-</table>
+<ng-container *ngIf="user.isReviewer; then review; else accessDenied"></ng-container>    
+<ng-template #review>
+    <h3>Requests to Review</h3>
+    <table>
+        <thead>
+            <tr><th>Id</th>
+                <th>Description</th>
+                <th>Justification</th>
+                <th>RejectionReason</th>
+                <th>DeliveryMode</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>UserId</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let request of requests">
+                <td>{{request.id}}</td>
+                <td>{{request.description}}</td>
+                <td>{{request.justification}}</td>
+                <td>{{request.rejectionReason}}</td>
+                <td>{{request.deliveryMode}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total |currency}}</td>
+                <td>{{request.user.username}}</td>
+                <td><a routerLink="/review/{{request.id}}">Review</a></td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+<ng-template #accessDenied>
+    <div>
+        <p>You do not have permission to access this page, please contact your administrator if you think this is a mistake</p>
+    </div>
+</ng-template>    

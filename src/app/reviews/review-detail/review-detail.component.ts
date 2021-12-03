@@ -12,6 +12,7 @@ import { RequestlineService } from 'src/app/requests/requestline.service';
   })
   export class ReviewDetailComponent implements OnInit {
   
+    reject: boolean = false;
     request: any;
     
     requestid: number = 0;
@@ -35,6 +36,10 @@ import { RequestlineService } from 'src/app/requests/requestline.service';
       this.request.requestlines = null;
       this.rssv.approve(this.request).subscribe({next: res => {console.debug("success"); this.fetchData(); this.router.navigate(["/reviewer/1"])},
     error: err => {console.debug(err)}});
+    }
+
+    clickReject(){
+      this.reject = true;
     }
 
     rejectRequest(){

@@ -41,7 +41,7 @@ export class RequestlineCreateComponent implements OnInit {
     this.requestline.product = null
     this.rlsv.create(this.requestline).subscribe({
       next: res => {console.debug("Success:", res);
-          this.router.navigate([`/requests/${this.requestline.requestId}/edit`])},
+          this.router.navigate([`/requests/${this.requestline.requestId}`])},
       error: err => {console.debug(err)}
     });
   }

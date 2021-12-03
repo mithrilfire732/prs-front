@@ -38,4 +38,9 @@
     </tr>
 </table>
 <button (click)="approveRequest()">Approve</button>
-<button (click)="rejectRequest()">Reject</button>
+<button (click)="clickReject()">Reject</button>
+<div *ngIf="reject">
+    <label>Rejection Reason</label>
+    <input [(ngModel)]="request.rejectionReason" type="text" required>
+    <button (click)="rejectRequest()">Verify Reject</button>
+</div>
