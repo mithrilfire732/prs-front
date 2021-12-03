@@ -41,4 +41,12 @@ export class RequestEditComponent implements OnInit {
 
   }
 
+  delete(): void {
+    this.rqsv.delete(this.requestId).subscribe({
+      next: res => {console.debug("Success:",res)
+          this.router.navigate(["/requests"])},
+      error: err => {console.debug(err)}
+    })
+  }
+
 }
