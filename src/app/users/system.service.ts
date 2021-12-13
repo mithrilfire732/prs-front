@@ -8,5 +8,7 @@ export class SystemService {
 
   user: User = new User();
 
+  isLoggedIn: boolean = false;
+
   constructor() { }
 }

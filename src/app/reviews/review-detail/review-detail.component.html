@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <h3>Request #{{request.id}}</h3>
-<table class="table table-sm">
+<table class="table table-light">
     <tr><th>Id</th>
         <th>Description</th>
         <th>Justification</th>
@@ -20,9 +20,9 @@
         <td>{{request.total |currency}}</td>
         <td>{{request.userId}}</td>
     </tr>
-</table>
+</table >
 <h4>Request Lines</h4>
-<table>
+<table class="table table-sm">
     <tr>
         <th>Id  </th>
         <th>Product</th>
@@ -37,10 +37,10 @@
         <td>${{rl.product.price |currency}}</td>
     </tr>
 </table>
-<button (click)="approveRequest()">Approve</button>
-<button (click)="clickReject()">Reject</button>
-<div *ngIf="reject">
-    <label>Rejection Reason</label>
-    <input [(ngModel)]="request.rejectionReason" type="text" required>
-    <button (click)="rejectRequest()">Verify Reject</button>
-</div>
+    <button type="button" class="btn btn-primary" style="width:100px; margin:10px 25px; margin-right: 0px;" (click)="approveRequest()">Approve</button>
+    <button type="button" class="btn btn-danger" style="width:100px; margin: 10px 25px;" (click)="clickReject()">Reject</button>
+    <div *ngIf="reject" style="display: inline-block;">
+        <label>Rejection Reason: </label>
+        <input [(ngModel)]="request.rejectionReason" type="text" style="margin: 10px;" required>
+        <button type="button" class="btn btn-danger" style="width:150px" (click)="rejectRequest()">Verify Reject</button>
+    </div>

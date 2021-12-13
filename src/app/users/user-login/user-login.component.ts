@@ -30,7 +30,8 @@ export class UserLoginComponent implements OnInit {
     this.ussv.login(this.username,this.password).subscribe({
       next: res => {
         console.debug("Logging in:", res);
-        this.sysv.user = res; 
+        this.sysv.user = res;
+        this.sysv.isLoggedIn = true; 
         this.router.navigate(["/home"]);},
       error: err => {console.debug(err); this.failed = true}})
   }

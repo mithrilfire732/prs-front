@@ -1,16 +1,18 @@
 <app-menu></app-menu>
 <h3>Requests</h3>
 <a routerLink="/requests/create">Start a Request</a>
-<table>
+<table class="table table-striped table-hover">
     <thead>
         <tr><th>Id</th>
         <th>Description</th>
         <th>Justification</th>
-        <th>RejectionReason</th>
-        <th>DeliveryMode</th>
+        <th>Rejection Reason</th>
+        <th>Delivery Mode</th>
         <th>Status</th>
         <th>Total</th>
-        <th>UserId</th></tr>
+        <th>UserId</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
         <tr *ngFor = "let request of requests">
@@ -22,8 +24,8 @@
             <td>{{request.status}}</td>
             <td>{{request.total |currency}}</td>
             <td>{{request.user.username}}</td>
-            <td><a routerLink="/requests/{{request.id}}">Details</a></td>
-            <td><a routerLink="/requests/{{request.id}}/edit">Edit</a></td>
+            <td><a routerLink="/requests/{{request.id}}">Details</a> | 
+                <a routerLink="/requests/{{request.id}}/edit">Edit</a></td>
         </tr>
     </tbody>
 </table>
