@@ -2,7 +2,7 @@
 <ng-container *ngIf="user.isReviewer; then review; else accessDenied"></ng-container>    
 <ng-template #review>
     <h3>Requests to Review</h3>
-    <table>
+    <table class="table table-striped table-hover">
         <thead>
             <tr><th>Id</th>
                 <th>Description</th>

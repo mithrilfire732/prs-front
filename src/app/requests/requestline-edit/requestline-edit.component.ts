@@ -43,7 +43,7 @@ export class RequestlineEditComponent implements OnInit {
     this.rlsv.edit(this.requestlineId,this.requestline).subscribe({ 
       next: res => {console.debug(res); 
         this.calculateSubtotal();
-        this.router.navigate([`/requests/${this.requestline.requestId}/edit`]);
+        this.router.navigate([`/requests/${this.requestline.requestId}`]);
       },
      error: err => {console.debug(err)}});
   }
