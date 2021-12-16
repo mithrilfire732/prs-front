@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -30,6 +30,12 @@ import { ReviewerListComponent } from './reviews/reviewer-list/reviewer-list.com
 import { ReviewDetailComponent } from './reviews/review-detail/review-detail.component';
 import { MenuComponent } from './misc/menu/menu/menu.component';
 import { MenuItemComponent } from './misc/menu/menu-item/menu-item.component';
+import { AppInitService } from './app-init.service';
+
+export function startupServiceFactory(
+  appinit: AppInitService): Function {
+    return () => appinit.getSettings();
+  }
 
 @NgModule({
   declarations: [
@@ -66,8 +72,17 @@ import { MenuItemComponent } from './misc/menu/menu-item/menu-item.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AppInitService, {
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+      deps: [AppInitService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
   
 })
+
+
 export class AppModule { }

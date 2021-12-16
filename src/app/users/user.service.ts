@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { User } from './user.class';
+import { AppInitService } from '../app-init.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  baseurl: string = "http://localhost:10732/api/users";
+  baseurl: string = `${this.app.config.baseurl}/api/users`;
 
 
-  constructor(private httpsvc: HttpClient) { }
+  constructor(private httpsvc: HttpClient,
+      private app: AppInitService) { }
 
   list(): Observable<User[]>{
     return this.httpsvc.get(`${this.baseurl}`) as Observable<User[]>

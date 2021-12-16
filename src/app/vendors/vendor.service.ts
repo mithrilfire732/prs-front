@@ -2,16 +2,18 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vendor } from './vendor.class';
+import { AppInitService } from '../app-init.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VendorService {
 
-  baseurl: string = "http://localhost:10732/api/vendors";
+  baseurl: string = `${this.app.config.baseurl}/api/vendors`;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private app: AppInitService) { }
 
   list():Observable<Vendor[]>{
     return this.http.get(`${this.baseurl}`) as Observable<Vendor[]>

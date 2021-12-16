@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable, ObservableLike } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Request } from './request';
+import { AppInitService } from '../app-init.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestService {
 
-  baseurl= "http://localhost:10732/api/requests"
+  baseurl= `${this.app.config.baseurl}/api/requests`
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private app: AppInitService) { }
 
   list():Observable<Request[]>{
     return this.http.get(this.baseurl) as Observable<Request[]>;

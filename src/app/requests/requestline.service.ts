@@ -3,14 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Requestline } from './requestline';
 import { ActivatedRoute } from '@angular/router';
+import { AppInitService } from '../app-init.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestlineService {
 
-  baseurl: string = "http://localhost:10732/api/requestlines"
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  baseurl: string = `${this.app.config.baseurl}/api/requestlines`
+  constructor(private http: HttpClient, private route: ActivatedRoute, private app: AppInitService) { }
 
   get(): Observable<Requestline[]>{
     return this.http.get(this.baseurl)  as Observable<Requestline[]>;
